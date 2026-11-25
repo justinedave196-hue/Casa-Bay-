@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Relax, recharge, and enjoy a peaceful seaside escape at Casa Bay Resort.">
+  <title>Casa Bay Resort | Your Peaceful Seaside Escape</title>
+  <style>
+    :root {
+      --navy: #123b46;
+      --teal: #1d6970;
+      --aqua: #dff3ef;
+      --sand: #f7f1e6;
+      --gold: #d6a85f;
+      --ink: #18343a;
+      --muted: #62777a;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; }
+    a { color: inherit; }
+    .topbar { background: var(--navy); color: white; padding: 9px 6%; text-align: center; font-size: .88rem; letter-spacing: .04em; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); box-shadow: 0 2px 16px rgba(18,59,70,.08); }
+    nav { max-width: 1180px; margin: auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { text-decoration: none; font-family: Georgia, serif; font-size: 1.55rem; font-weight: bold; color: var(--navy); letter-spacing: .03em; }
+    .brand span { color: var(--gold); }
+    .navlinks { display: flex; align-items: center; gap: 25px; }
+    .navlinks a { text-decoration: none; font-size: .94rem; font-weight: 600; color: var(--navy); }
+    .navlinks a:hover { color: var(--teal); }
+    .menu { display: none; border: 0; background: transparent; font-size: 1.6rem; color: var(--navy); cursor: pointer; }
+    .hero { min-height: 590px; display: grid; place-items: center; text-align: center; padding: 90px 22px; color: white;
+      background: linear-gradient(90deg, rgba(8,43,52,.70), rgba(8,43,52,.24)), url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2000&q=85') center/cover; }
+    .hero-inner { max-width: 800px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .78rem; font-weight: bold; color: #f4d9a7; }
+    h1 { font: 500 clamp(2.8rem, 7vw, 5.5rem)/1.05 Georgia, serif; margin: 16px 0; }
+    .hero p { max-width: 620px; margin: 0 auto 28px; font-size: 1.12rem; color: #f2f7f5; }
+    .btn { display: inline-block; background: var(--gold); color: #18343a; padding: 13px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; border: 0; cursor: pointer; transition: .2s; }
+    .btn:hover { transform: translateY(-2px); background: #e5bd7b; }
+    section { padding: 82px 22px; }
+    .wrap { max-width: 1120px; margin: auto; }
+    .section-head { text-align: center; max-width: 700px; margin: 0 auto 42px; }
+    .section-head .eyebrow { color: var(--teal); }
+    h2 { font: 500 clamp(2rem, 4vw, 3.1rem)/1.15 Georgia, serif; color: var(--navy); margin: 10px 0 14px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .intro { background: var(--sand); }
+    .intro-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; }
+    .intro-image { min-height: 370px; border-radius: 18px; background: url('https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=85') center/cover; box-shadow: 18px 18px 0 #e7d8bd; }
+    .intro-copy p { color: var(--muted); }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .feature { border-radius: 16px; overflow: hidden; background: white; box-shadow: 0 8px 28px rgba(18,59,70,.09); }
+    .feature img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .feature-content { padding: 23px; }
+    .feature h3 { font: 600 1.45rem Georgia, serif; color: var(--navy); margin: 0 0 8px; }
+    .feature p { color: var(--muted); margin: 0; }
+    .highlight { background: var(--navy); color: white; text-align: center; }
+    .highlight h2 { color: white; }
+    .highlight p { max-width: 700px; margin: 0 auto 25px; color: #d7e8e5; }
+    .contact { background: var(--aqua); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; align-items: start; }
+    .contact-info p { color: var(--muted); }
+    .contact-card { background: white; padding: 28px; border-radius: 16px; box-shadow: 0 8px 28px rgba(18,59,70,.08); }
+    .contact-card label { display: block; font-weight: bold; margin: 12px 0 6px; color: var(--navy); }
+    .contact-card input, .contact-card textarea, .contact-card select { width: 100%; padding: 12px 13px; border: 1px solid #c9dcda; border-radius: 8px; font: inherit; background: #fbfdfc; }
+    .contact-card textarea { min-height: 110px; resize: vertical; }
+    .contact-card button { margin-top: 18px; width: 100%; font-size: 1rem; }
+    .email-link { color: var(--teal); font-weight: bold; text-decoration: none; overflow-wrap: anywhere; }
+    footer { background: #0d2e37; color: #d8e8e5; text-align: center; padding: 27px 20px; font-size: .9rem; }
+    footer strong { color: white; font-family: Georgia, serif; }
+    @media (max-width: 760px) {
+      .menu { display: block; }
+      .navlinks { display: none; position: absolute; top: 64px; left: 0; right: 0; padding: 18px 25px; background: white; flex-direction: column; align-items: flex-start; box-shadow: 0 10px 18px rgba(0,0,0,.08); }
+      .navlinks.open { display: flex; }
+      .hero { min-height: 520px; }
+      .intro-grid, .contact-grid { grid-template-columns: 1fr; }
+      .intro-image { min-height: 280px; }
+      .features { grid-template-columns: 1fr; max-width: 520px; margin: auto; }
+      section { padding: 65px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">A PLACE TO SLOW DOWN, UNWIND, AND FEEL REFRESHED</div>
+  <header>
+    <nav>
+      <a class="brand" href="#home">CASA <span>BAY</span></a>
+      <button class="menu" aria-label="Open navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+      <div class="navlinks">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#experiences">Experiences</a><a href="#contact">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="eyebrow">Welcome to Casa Bay Resort</div>
+        <h1>Your peaceful seaside escape</h1>
+        <p>Take a break from the everyday and enjoy a relaxing resort experience with soothing spa treatments, refreshing moments, and the calm of the bay.</p>
+        <a class="btn" href="#experiences">Explore Our Experiences</a>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="wrap intro-grid">
+        <div class="intro-image" role="img" aria-label="Tropical seaside resort view"></div>
+        <div class="intro-copy">
+          <div class="eyebrow">About Casa Bay</div>
+          <h2>Relaxation begins here.</h2>
+          <p>Casa Bay Resort is a welcoming place to rest, recharge, and enjoy a peaceful escape by the bay. Whether you are visiting with family, friends, or simply taking time for yourself, our goal is to make every visit feel refreshing.</p>
+          <p>Enjoy calming surroundings and treat yourself to a little well-deserved relaxation.</p>
+          <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Make time for yourself</div>
+          <h2>Relax, refresh, and recharge</h2>
+          <p>Discover simple ways to make your stay at Casa Bay special.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85" alt="Peaceful spa treatment room">
+            <div class="feature-content"><h3>Spa & Massage</h3><p>Unwind with a soothing massage in a peaceful setting. Let the day's stress fade away as you enjoy a relaxing moment.</p></div>
+          </article>
+          <article class="feature">
+            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=900&q=85" alt="Warm resort swimming pool">
+            <div class="feature-content"><h3>Hot Water Spa</h3><p>Enjoy a warm, calming soak and take time to rest, refresh, and enjoy the moment.</p></div>
+          </article>
+          <article class="feature">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85" alt="Sunny tropical beach beside the sea">
+            <div class="feature-content"><h3>Bay-side Escape</h3><p>Slow down and enjoy the peaceful atmosphere of a seaside getaway with the people who matter most.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <div class="wrap">
+        <div class="eyebrow">Your time. Your escape.</div>
+        <h2>Make room for relaxation.</h2>
+        <p>From a calming massage to a warm spa experience, Casa Bay is a place to pause, breathe, and enjoy a refreshing break.</p>
+        <a class="btn" href="#contact">Ask About a Visit</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <div class="eyebrow">We'd love to hear from you</div>
+          <h2>Contact Casa Bay</h2>
+          <p>Have a question about our spa and massage services or want to ask about visiting? Send us a message using the form.</p>
+          <p><strong>Email</strong><br><a class="email-link" href="mailto:justinedaveq196@gmail.com">justinedaveq196@gmail.com</a></p>
+          <p>We look forward to welcoming you to Casa Bay Resort.</p>
+        </div>
+        <form class="contact-card" id="contactForm">
+          <label for="name">Your name</label>
+          <input id="name" name="name" placeholder="Enter your name" required>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required>
+          <label for="interest">What are you interested in?</label>
+          <select id="interest" name="interest">
+            <option>Spa & Massage</option><option>Hot Water Spa</option><option>Resort Visit</option><option>General Inquiry</option>
+          </select>
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+          <button class="btn" type="submit">Send Inquiry</button>
+          <small style="display:block;color:#62777a;margin-top:12px">This form opens your email app with your message ready to send.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>CASA BAY RESORT</strong><br>
+    Your peaceful seaside escape.<br>
+    © <span id="year"></span> Casa Bay Resort. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const data = new FormData(this);
+      const subject = encodeURIComponent('Casa Bay Resort Inquiry - ' + data.get('interest'));
+      const body = encodeURIComponent(
+        'Name: ' + data.get('name') + '\\n' +
+        'Email: ' + data.get('email') + '\\n' +
+        'Interested in: ' + data.get('interest') + '\\n\\n' +
+        'Message:\\n' + data.get('message')
+      );
+      window.location.href = 'mailto:justinedaveq196@gmail.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
